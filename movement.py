@@ -9,7 +9,7 @@
 
 
 def print_north( north ):
-   print ("\n Riley walks north")   
+   print ("\nRiley lights a marking flare, drops it on the ground, and she proceeds to walk north")   
    return
 #- Moves Riley north to her next destination
 
@@ -22,7 +22,7 @@ def print_south( south ):
 def print_destroy( destroy ):
    print (
 '''\nRiley clears a path with her flamethrower while she heads south. She destroys
-Aliens, roasts alien eggs, and then approaches the sub level 3 elevator''')
+Aliens, roasting alien eggs, and she heads for the sub level 3 elevator''')
 # Sends Riley on a killing spree while she makes her way back to the sub level 3 elevator  
 
 def print_noDisturb( noDisturb):
@@ -56,7 +56,7 @@ def print_northDownSub2( northDownSub2 ):
 
 
 def print_northDownSub3( northDownSub3 ):
-   print ("\nRiley walks north to go downstairs to sub level 3")   
+   print ("\nRiley walks north to go downstairs to sub level 3; she sees Rebecca")   
    return
 #- Moves Riley north to go downstairs to sub level 3
 

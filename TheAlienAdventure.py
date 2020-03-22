@@ -1,9 +1,9 @@
 #-------------------------------------
 #David Gibbs
-#March 4, 2020
+#March 22, 2020
 #
-#File Name: THE ALIEN ADVENTURE.py
-#Game: ALIEN
+#File Name: TheAlienAdventure.py
+#Game: The ALIEN Adventure
 #-------------------------------------
 
 #Global Imports
@@ -23,37 +23,76 @@ def cls():
     print("\n" * 60)
 
 def pause():
-    programPause = input("Press the <ENTER> key to continue...")
+    programPause = input("Press the <ENTER> key to begin...")
+
+def begin():
+    programBegin = input("\nPress <ENTER> to start the game...")
     
+def resume():
+    programResume = input("\n Press the <ENTER> key to continue...")
+
+def game_Over():
+    print("\n \n --> The Game Is Over")
+    game_Over_options = ["1","2"]
+    user_choice = ""
+    while user_choice not in game_Over_options:
+        print(
+'''\nRebecca needs your help''',(person),'''\nWould you like to try The ALIEN Adventure again\n?
+
+What do you do?
+
+    1) Play Again
+    2) Quit\n''')
+        
+        user_choice = str(input("Enter option number: "))
+        print("\nYou have selected " + user_choice)
+        if user_choice == game_Over_options [0]:
+            cls()
+            time.sleep(2.0)
+            chapter_one() 
+        elif user_choice == game_Over_options [1]:
+            print("\n \nThank You for playing The ALIEN Adventure")
+        elif user_choice != game_Over_options:
+            print("\nThat was an incorrect choice. Please try again\n")
+            time.sleep(3.5)
+            cls()
+            game_Over()
+
+#Breaks the loop after choosing an incorrect response
+        break
+
 cls()
 
 title.print_startTitle( "startTitle" )
 
 count = 0
-while(count < 7):
+while(count < 10):
 	print("")
 	count += 1
 
-time.sleep(5.5)
 
-cls()
+begin()
 
-count = 0
-while(count < 20):
-	print("")
-	count += 1
+#cls()
 
-person = input('\n \nWhat is your name?: ')
+#count = 0
+#while(count < 20):
+	#print("")
+	#count += 1
+
+person = input('\nWhat is your name?: ')
 greeting = 'Hello {}!'.format(person)
 cls()
 
 print(greeting)
 
-print('''\nThis is a text based adventure game called ALIEN. You have assumed the role of the main character in the game, LT. Helen Riley.
-Every choice you make will determine Riley's actions and the plot's outcome.\n \nGood luck!\n \n \n \n \n''')          
+print('''\nThis is a text based adventure game called ALIEN. You have assumed the role of the main character in the game,LT. Helen Riley.
+Your mission will challenge you to travel deep into the Alien layer to rescue your friend Rebecca, and then escape before
+the atmospheric processors explode. Every choice you make will determine Riley's actions and the plot's outcome.
+\n \nGood luck!\n \n \n \n \n''')          
 
 pause()
-#time.sleep(11.5)
+
 
 cls()
 
@@ -62,16 +101,24 @@ def chapter_one():
     user_choice = ""
     while user_choice not in chapter_one_options:
         print(
-'''\nIn the past, in the year 2045,Lieutenant Helen Riley, a warrant officer formerly assigned to the USCSS Nostradamus,
+'''\nIt was the year 2045. Lieutenant Helen Riley, a warrant officer formerly assigned to the USCSS Nostradamus,
 an M-Class Star freighter touched down on FURY-161 to home in a on a distress beacon from a derelict spacecraft.
-Helen and her team discover that the spacecraft belong to a dangerous alien species.
-The alien creature invades her and her team’s ship, eliminating each member one by one.
-Helen must abandon the ship before becoming its final victim. After destroying the star freighter,
-and the alien creature, she seeks refuge in a lifeboat and drifts through space for 57 years in hyper sleep
-until finally being rescued by a salvage team. 
+Helen and her team discover that the spacecraft belonged to a dangerous alien species. The crew set down on the
+planet and one of the crew members had to be rescued after he was attacked. He was brought back to the ship with
+something attached to his face; some sort of alien species. The alien used the crew member's body as a host for a
+new Alien. The creatures exploded through the crew member's chest and escaped into the ducts of the ship, only to
+grow to an enormous size over a period of 2 weeks. The creature invaded her and her team’s ship, eliminating each
+member one by one. Helen, knowing that she didn't have a chance against the creature, abandoned the ship before
+becoming its final victim.She escaped on a lifeboat vessel, after detonating aand destroying the star freighter,
+and the alien creature with it. She sought refuge in the lifeboat and drifts through space for a period of 57
+years in hyper sleep until finally being rescued by a salvage team.\n''')
+        resume()
+        cls()
 
-It is now 2102. The once desolate planet, FURY161, now home to a
-terraforming colony with 75 families. Surrounding the base are large atmospheric processors
+        print(
+
+'''\nIt is now 2102. The once desolate planet, FURY161, is now home to a terraforming
+colony with 75 families. Surrounding the base are large atmospheric processors
 to help make the air breathable for its inhabitants. The recent silence from
 the colony is un-nerving. No one has been able to contact these families for weeks.
 Riley, last survivor of the Nostradamus incident from years past, and an employee of
@@ -82,12 +129,16 @@ travel down to the planet and establish contact with the colony. Once on the pla
 they discover that the entire colony has disappeared and, in their attempts, to search
 for any survivors, they encounter an alien species which totally wipes out the majority
 of their team. now she must make a choice to leave the planet with the remaining survivors,
-Corporal Hicks, Cardinal the android, or travel deep into the Alien nest to locate the only remaining.
+Corporal Hickson, Cardinal the android, or travel deep into the Alien nest to locate the only remaining.
 survivor, Rebecca, a young girl that Riley had befriended during the initial visit.
 During the battle on FURY-161, Riley and Rebecca became separated and Rebecca has now
-been taken by the alien creatures soon to be made a host for creating new alien creatures.
+been taken by the alien creatures soon to be made a host for creating new alien creatures.\n''')
+        resume()
+        cls()
 
-We cut directly to the scene where Cardinal, piloting the rescue ship, lands on the
+        print(
+
+'''\nWe cut directly to the scene where Cardinal, piloting the rescue ship, lands on the
 platform many stories up where there is an elevator which leads down to the alien nest.
 This elevator can be taken down to where Rebecca is being held.
 During the earlier battle, Riley placed a tracking beacon on Rebecca in order to track
@@ -107,24 +158,33 @@ What do you do??
 
     1) Stay on the platform
     2) Press the 'down' button on the cargo elevator, go down to sub level 2
-    3) Turn around, board the dropship, take off and abandon the rescue operation. ''')
+    3) Turn around, board the dropship, take off and abandon the rescue operation. \n''')
 
-        user_choice = str(input("\n Enter option number: "))
-    print("You have selected " + user_choice)
-    if user_choice == chapter_one_options [0]:
-        movement.print_stay( "stay" )
-        time.sleep(5.5)
-        cls()
-        chapter_one()
-    elif user_choice == chapter_one_options [1]:
-        action.print_downElev( "downElev" )
-        time.sleep(5.5)
-        cls()
-        chapter_two()
-    elif user_choice == chapter_one_options [2]:
-        time.sleep(5.5)
-        cls()
-        finale.print_noRescue( "noRescue" )
+        user_choice = str(input("Enter option number: "))
+        print("\nYou have selected " + user_choice)
+        if user_choice == chapter_one_options [0]:
+            movement.print_stay( "stay" )
+            time.sleep(4.5)
+            cls()
+            chapter_one()
+        elif user_choice == chapter_one_options [1]:
+            action.print_downElev( "downElev" )
+            time.sleep(4.5)
+            cls()
+            chapter_two()
+        elif user_choice == chapter_one_options [2]:
+            time.sleep(4.5)
+            cls()
+            finale.print_noRescue( "noRescue" )
+            game_Over()
+        elif user_choice != chapter_one_options:
+            print("\nThat was an incorrect choice. Please try again\n")
+            time.sleep(3.5)
+            cls()
+            chapter_one()
+
+#Breaks the loop after choosing an incorrect response
+        break
           
 
 def chapter_two():
@@ -141,10 +201,10 @@ What do you do?
 
     1) Walk north toward the dim lights in the distance, drop a marking flare
     2) Stay
-    3) Turn around walk south back to the elevator and press the up button and take the elevator to escape''')
+    3) Abandon the mission, turn around and walk south back to the elevator, take the elevator to escape.\n''')
 
-        user_choice = str(input("\n Enter option number: "))
-        print("You have selected " + user_choice)
+        user_choice = str(input("Enter option number: "))
+        print("\nYou have selected " + user_choice)
         if user_choice == chapter_two_options [0]:
             movement.print_north( "north" )
             time.sleep(5.5)
@@ -152,15 +212,23 @@ What do you do?
             chapter_three()
         elif user_choice == chapter_two_options [1]:
             movement.print_stay( "stay" )
-            time.sleep(5.5)
+            time.sleep(4.5)
             cls()
             chapter_two()
         elif user_choice == chapter_two_options [2]:
             action.print_upElev( "upElev" )
-            time.sleep(5.5)
+            time.sleep(4.5)
             cls()
             finale.print_noRescue( "noRescue" )
+            game_Over()
+        elif user_choice != chapter_two_options:
+            print("\nThat was an incorrect choice. Please try again\n")
+            time.sleep(3.5)
+            cls()
+            chapter_two()
 
+#Breaks the loop after choosing an incorrect response
+        break
 
 def chapter_three():
     print(" \n \n --> You are now in Chapter 3, immersed deep into the Alien nest on sub level 2")
@@ -179,26 +247,33 @@ What do you do?
 
     1) Proceed to sub level 3, run deeper into the Alien nest, help Rebecca and take her by the hand
     2) Stay where you are
-    3) Turn around and go back upstairs to sub level 2''')
+    3) Turn around and go back upstairs to sub level 2.\n''')
 
-        user_choice = str(input("\n Enter option number: "))
-        print("You have selected " + user_choice)
+        user_choice = str(input("Enter option number: "))
+        print("\nYou have selected " + user_choice)
         if user_choice == chapter_three_options [0]:
             movement.print_northDownSub3( "northDownSub3" )
-            time.sleep(5.5)
+            time.sleep(4.5)
             cls()
             chapter_four()
         elif user_choice == chapter_three_options [1]:
             movement.print_stay( "stay" )
-            time.sleep(5.5)
+            time.sleep(4.5)
             cls()
             chapter_three()
         elif user_choice == chapter_three_options [2]:
             movement.print_southUpSub2( "southUpSub2 ")
-            time.sleep(5.5)
+            time.sleep(4.5)
             cls()
             chapter_two()
+        elif user_choice != chapter_three_options:
+            print("\nThat was an incorrect choice. Please try again\n")
+            time.sleep(3.5)
+            cls()
+            chapter_three()
 
+#Breaks the loop after choosing an incorrect response
+        break
 
 def chapter_four():
     print("\n \n --> You are now in Chapter 4 on sub level 3")
@@ -221,32 +296,40 @@ What do you do?
     1) Turn around and walk south towards the elevator on sub level 3 without disturbing the nest.
     2) Stay where you are
     3) Clear a path with your flamethrower, while walking south, kill aliens, destroy eggs, then
-    run south towards sub level 3 elevator''')
+    run south towards sub level 3 elevator.\n''')
 
-        user_choice = str(input("\nEnter option number: "))
-        print("You have selected " + user_choice)
+        user_choice = str(input("Enter option number: "))
+        print("\nYou have selected " + user_choice)
         if user_choice == chapter_four_options [0]:
             movement.print_noDisturb( "noDisturb" )
-            time.sleep(5.5)
+            time.sleep(4.5)
             cls()
             chapter_five()
         elif user_choice == chapter_four_options [1]:
             movement.print_stay( "stay" )
-            time.sleep(5.5)
+            time.sleep(4.5)
             cls()
             chapter_four()
         elif user_choice == chapter_four_options [2]:
             action.print_useFlame( "useFlame" )
             fight.print_killAliens( "killAliens")
             movement.print_destroy( "destroy" )
-            time.sleep(8.5)
+            time.sleep(10.5)
             cls()
             chapter_five()
+        elif user_choice != chapter_four_options:
+            print("\nThat was an incorrect choice. Please try again\n")
+            time.sleep(3.5)
+            cls()
+            chapter_four()
+
+#Breaks the loop after choosing an incorrect response
+        break
 
 
 def chapter_five():
     print("\n \n --> You are now in Chapter 5 on sub level 3")
-    chapter_five_options = ["1","2","3","4"]
+    chapter_five_options = ["1","2","3"]
     user_choice = ""
     while user_choice not in chapter_five_options:
         print(
@@ -257,39 +340,42 @@ of the Alien queen's footsteps. It's too dark to see her, but you hear the cry o
 
 What do you do?
 
-    1) Press the up elevator button and proceed to the landing platform where Cardinal is waiting for you
+    1) Press the up elevator button, avoid the queen, close the door and proceed to the landing platform
     2) Stay on sub level 3
-    3) Turn around and use the flamethrower to kill the Alien Queen
-    4) Press the up elevator button, close the elevator door, avoid the Queen and proceed to the landing platform''')
+    3) Turn around and use the flamethrower to kill the Alien Queen\n''')
         
         user_choice = str(input("Enter option number: "))
-        print("You have selected " + user_choice)
+        print("\nYou have selected " + user_choice)
         if user_choice == chapter_five_options [0]:
-            movement.print_noDisturb( "noDisturb" )
-            time.sleep(5.5)
+            action.print_upElev( "upElev ") 
+            time.sleep(4.5)
             cls()
-            finale.print_ending( "ending" )
+            finale.print_ending( "ending ")
+            time.sleep(2.0)
+            print("\n \nThank You for playing The ALIEN Adventure")
         elif user_choice == chapter_five_options [1]:
             movement.print_stay( "stay" )
-            time.sleep(5.5)
+            time.sleep(4.5)
             cls()
             chapter_five()
         elif user_choice == chapter_five_options [2]:
             time.sleep(3.5)
             action.print_useFlame2( "useFlame2" )
             time.sleep(5.5)
+            cls()
             queen.print_queenAttack( "queenAttack" )
             fight.print_killQueen( "killQueen")
             time.sleep(10.5)
             cls()
             chapter_five()
-        elif user_choice == chapter_five_options [3]:
-           action.print_upElev( "upElev ") 
-           time.sleep(5.5)
-           cls()
-           finale.print_ending( "ending ")
-            
-            
+        elif user_choice != chapter_five_options:
+            print("\nThat was an incorrect choice. Please try again\n")
+            time.sleep(3.5)
+            cls()
+            chapter_five()
+#Breaks the loop after choosing an incorrect response                              
+        break            
+
 #Main Program
 	
 chapter_one()
